@@ -51,6 +51,7 @@ function Auth() {
         <div>
             <div>
                 <div>
+                
                     <p>{isSignup ? 'Sign Up' : 'Sign In'}</p>
 
                     <form onSubmit={handleSubmit} action="">
