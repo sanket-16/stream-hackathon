@@ -6,9 +6,16 @@
 	body {
 		@apply bg-background;
 		@apply text-white;
+		@apply font-serif
 	}
 	h1 {
 		@apply text-5xl;
+		@apply mx-4;
+		@apply my-2; 
+	}
+
+	label {
+		@apply text-white/50;
 	}
 
 	input[type='text'] {
@@ -16,8 +23,8 @@
 		@apply rounded-lg;
 		@apply px-4;
 		@apply py-2;
-		@apply mx-4;
-		@apply my-2;
+		@apply m-1;
+		@apply focus:outline-none;
 	}
 
 	input[type='password'] {
@@ -25,8 +32,8 @@
 		@apply rounded-lg;
 		@apply px-4;
 		@apply py-2;
-		@apply mx-4;
-		@apply my-2;
+		@apply m-1;
+		@apply focus:outline-none;
 	}
 
   button {
@@ -34,8 +41,7 @@
     @apply rounded-lg;
     @apply px-4;
     @apply py-2;
-    @apply mx-4;
-		@apply my-2;
+    @apply m-1;
   }
 
 }

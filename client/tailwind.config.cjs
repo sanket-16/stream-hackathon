@@ -6,6 +6,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+      serif: ['Segoe UI', 'Roboto', 'Open Sans', 'Helvetica Neue', 'sans-serif'],
+    },
       colors: {
         'background':'#131313',
         'primary':'#1565FF',
