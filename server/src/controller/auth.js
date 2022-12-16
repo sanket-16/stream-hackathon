@@ -12,37 +12,37 @@ const id = process.env.STREAM_APP_ID
 exports.signup = async (req, res) => {
           
    try {
-      const { fullname, username, password, phone } = req.body;
-      const userID = crypto.randomBytes(16).toString('hex');
+      const { fullName, username, password, phoneNumber } = req.body;
+      const userId = crypto.randomBytes(16).toString('hex');
 
       const serverClient = connect(key, secret, id);
 
-      const hashPassword = await bcrypt.hash(password, 10);
-      const token = serverClient.createUserToken(userID);
+      const hashedPassword = await bcrypt.hash(password, 10);
+      const token = serverClient.createUserToken(userId);
       res.status(200).json({
-         token, fullname, username, userID, hashPassword, phone
+         token, fullName, username, userId, hashedPassword, phoneNumber
       })
    } catch (error) {
       console.log(error);
-      res.status(400).json({ message: error })
+      res.status(500).json({ message: error })
    }
 };
-exports.singin = async (req, res) => {
+exports.signin = async (req, res) => {
    try {
       const { username , password} = req.body;
       
       const serverClient = connect(key,secret,id);
-      console.log(key,secret);
+      // console.log(key,secret);
       const client = StreamChat.getInstance(key,secret);
       const {users} = await client.queryUsers({name:username});
-      console.log(users)
+      // console.log(users)
 
-      if(!users.length) return res.status(400).json({message:"User not found"});
-      const sucess = await bcrypt.compare(password,users[0].hashedPassword);
+      if(!users.length) return res.status(400).json({message:"User not found!!"});
+      const success = await bcrypt.compare(password,users[0].hashedPassword);
       const token = serverClient.createUserToken(users[0].id);
 
-      if(sucess){
-         res.status(200).json({token , fullname:users[0].fullname , username , userID:users[0].id , pass: users[0].hashedPassword})
+      if(success){
+         res.status(200).json({token , fullName:users[0].fullName , username , userId:users[0].id})
       }
       else{
          res.status(500).json({message:"Incorreact password"});
@@ -51,6 +51,6 @@ exports.singin = async (req, res) => {
 
    } catch (error) {
       console.log(error);
-      res.status(400).json({ message: error })
+      res.status(500).json({ message: error })
    }
 }

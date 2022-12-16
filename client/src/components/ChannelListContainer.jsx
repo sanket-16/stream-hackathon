@@ -9,7 +9,7 @@ import TeamChannelPreview from './TeamChannelPreview';
 
 const cookies = new Cookies();
 
-const SideBar = () => (
+const SideBar = ({logout}) => (
 	<div >
 		<div >
 			<div >
@@ -17,7 +17,7 @@ const SideBar = () => (
 			</div>
 		</div>
 		<div >
-			<div >
+			<div onClick={logout} >
 				logout
 			</div>
 		</div>
@@ -34,12 +34,23 @@ const CompanyHeader = () => (
 
 const ChannelListContainer = () => {
 
+	const logout = () => {
+			cookies.remove("token");
+			cookies.remove('userId');
+			cookies.remove('username');
+			cookies.remove('fullName');
+			cookies.remove('avatarURL');
+			cookies.remove('hashedPassword');
+			cookies.remove('phoneNumber');
+
+			window.location.reload();
+	}
 
 
 
 	return (
 		<>
-			<SideBar />
+			<SideBar logout={logout} />
 			<div >
 				<CompanyHeader />
 				<ChannelSearch />
