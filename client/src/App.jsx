@@ -27,12 +27,12 @@ if (authToken) {
 const App = () => {
 	if (!authToken) return <Auth />;
 	return (
-		<>
+		<div>
 			<Chat client={client} theme='team dark'>
 				<ChannelListContainer />
 				<ChannelContainer />
 			</Chat>
-		</>
+		</div>
 	);
 };
 
