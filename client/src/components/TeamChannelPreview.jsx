@@ -15,7 +15,7 @@ function TeamChannelPreview({ channel, type }) {
     function ChannelPreview() {
         return (
             <p>
-                # {channel?.data?.name || channel?.data?.id}
+                 {channel?.data?.name || channel?.data?.id}
             </p>
         );
     }
