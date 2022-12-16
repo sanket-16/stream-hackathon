@@ -14,11 +14,12 @@ exports.signup = async (req, res) => {
    try {
       const { fullName, username, password, phoneNumber } = req.body;
       const userId = crypto.randomBytes(16).toString('hex');
-
+      console.log(req.body)
       const serverClient = connect(key, secret, id);
 
       const hashedPassword = await bcrypt.hash(password, 10);
       const token = serverClient.createUserToken(userId);
+      console.log(serverClient,token)
       res.status(200).json({
          token, fullName, username, userId, hashedPassword, phoneNumber
       })
