@@ -6,15 +6,15 @@ function TeamChannelPreview({ setActiveChannel, setIsCreating, setIsEditing, cha
     function DirectPreview() {
         const members = Object.values(channel.state.members).filter(({ user }) => user.id !== client.userID)
         return (
-            <div className='flex'>
+            <div className='flex mb-4 ml-3  items-center  '>
                 <Avatar image={members[0]?.user?.image} name={members[0]?.user?.name} size={24} />
-                <p>{members[0]?.user?.name}</p>
+                <p className='text-lg '>{members[0]?.user?.name}</p>
             </div>
         )
     }
     function ChannelPreview() {
         return (
-            <p>
+            <p className='ml-4 text-xl  mb-4'>
                 # {channel?.data?.name || channel?.data?.id}
             </p>
         );
@@ -26,7 +26,7 @@ function TeamChannelPreview({ setActiveChannel, setIsCreating, setIsEditing, cha
             setIsEditing(false);
             setActiveChannel(channel);
         }}>
-            {type === 'team' ? <ChannelPreview /> : <DirectPreview />}
+            {type === 'team' ? <ChannelPreview  /> : <DirectPreview />}
         </div>
     )
 }

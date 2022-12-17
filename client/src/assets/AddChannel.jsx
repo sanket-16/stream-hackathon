@@ -3,7 +3,10 @@ import { AiOutlinePlus } from 'react-icons/ai'
 function AddChannel({setCreateType,setIsCreating,setIsEditing,setToggleContainer,type}) {
     return (
         <>
-            <AiOutlinePlus
+        <div className='mr-5'>
+
+       
+            <AiOutlinePlus size={15}
                 onClick={() => {
                     setCreateType(type);
                     setIsCreating((prevState) => !prevState);
@@ -11,6 +14,7 @@ function AddChannel({setCreateType,setIsCreating,setIsEditing,setToggleContainer
                     if (setToggleContainer) setToggleContainer((prevState) => !prevState)
                 }}
             />
+             </div>
         </>
     )
 }

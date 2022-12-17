@@ -19,9 +19,9 @@ function TeamChannelList({ children, error = false, loading, type, isCreating, s
 	console.log(children)
 
 	return (
-		<div>
+		<div className=''>
 			<div className='flex justify-between items-center'>
-				<p className='text-white/50'>{type === 'team' ? 'Channels' : 'Direct Messages'}</p>
+				<p className='text-white/50 font-semibold ml-4 mb-4 mt-4 '>{type === 'team' ? 'Channels' : 'Direct Messages'}</p>
 				<AddChannel
 					isCreating={isCreating}
 					setIsCreating={setIsCreating}

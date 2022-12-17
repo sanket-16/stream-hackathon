@@ -31,10 +31,12 @@ const SearchResult = ({ channel, focusedId, type, setChannel, setToggleContainer
             setToggleContainer((prevState) => !prevState)   
           }
         }}
-        className={focusedId === channel.id ? 'channel-search__result-container__focused' : 'channel-search__result-container' }
+        className={focusedId === channel.id ? 'hover:scale-100' : 'hover:scale-100 channel-search__result-container' }
       >
-        <div className='result-hashtag'>#</div>
-        <p className='channel-search__result-text'>{channel.data.name}</p>
+        <div className=' px-4 items-center'>
+        <p className='bg-[#494949] rounded-md h-8 font-bold pl-5   '># {channel.data.name}</p>
+        </div>
+       
       </div>
     );
   }
@@ -47,11 +49,14 @@ const SearchResult = ({ channel, focusedId, type, setChannel, setToggleContainer
             setToggleContainer((prevState) => !prevState)   
         }
       }}
-      className={focusedId === channel.id ? 'channel-search__result-container__focused' : 'channel-search__result-container' }
+      className={focusedId === channel.id ? ' hover:scale-100 ' : ' hover:scale-100 channel-search__result-container' }
     >
-      <div className='channel-search__result-user'>
-        <Avatar image={channel.image || undefined} name={channel.name} size={24} />
-        <p className='channel-search__result-text'>{channel.name}</p>
+      <div className='flex items-center gap-y-2 mt-2 px-4       '>
+      <div className='bg-[#494949] flex rounded-md p-4 w-full'>
+      <Avatar  image={channel.image || undefined} name={channel.name} size={24} />
+        <p className='text-xl ml-2 '>{channel.name}</p>
+      </div>
+       
       </div>
     </div>
   );
@@ -61,7 +66,7 @@ const ResultsDropdown = ({ teamChannels, directChannels, focusedId, loading, set
 
   return (
     <div className='channel-search__results'>
-      <p className='channel-search__results-header'>Channels</p>
+      <p className='font-semibold text-2xl mt-4 mb-3'>Channels</p>
       {loading && !teamChannels.length && (
         <p className='channel-search__results-header'>
           <i>Loading...</i>
@@ -83,7 +88,7 @@ const ResultsDropdown = ({ teamChannels, directChannels, focusedId, loading, set
           />
         ))
       )}
-      <p className='channel-search__results-header'>Users</p>
+      <p className='font-semibold text-2xl'>Users</p>
       {loading && !directChannels.length && (
         <p className='channel-search__results-header'>
           <i>Loading...</i>

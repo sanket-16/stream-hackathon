@@ -79,8 +79,11 @@ const ChannelListContainer = ({
 						<Profile logout={logout} />
 					</div>
 					<div className='col-span-4 '>
-						<div className='flex flex-col h-full'>
-							<ChannelSearch />
+						<div className='flex flex-col h-full mr-4'>
+						<div className='mb-4'>
+						<ChannelSearch />
+						</div>
+							
 							<ChannelList
 								filters={filters}
 								channelRenderFilterFn={customChannelTeamFilter}
