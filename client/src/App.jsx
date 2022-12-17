@@ -1,6 +1,7 @@
 import { StreamChat } from 'stream-chat';
 import { Chat } from 'stream-chat-react';
-import 'stream-chat-react/dist/css/index.css';
+// import 'stream-chat-react/dist/css/index.css';
+import '@stream-io/stream-chat-css/dist/css/index.css';
 import ChannelContainer from './components/ChannelContainer';
 import ChannelListContainer from './components/ChannelListContainer';
 import Auth from './components/Auth';
@@ -31,7 +32,7 @@ const App = () => {
 	const [isEditing, setIsEditing] = useState(false);
 	if (!authToken) return <Auth />;
 	return (
-		<div>
+		<div className='h-screen'>
 			<Chat client={client} theme='team dark'>
 				<ChannelListContainer
 					isCreating = {isCreating}

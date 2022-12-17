@@ -12,7 +12,7 @@ const userId = cookies.get('userId');
 const name = cookies.get('username');
 const image = cookies.get('avatarURL');
 console.log(image);
-const SideBar = ({ logout }) => (
+const Navbar = ({ logout }) => (
 	<div className='flex justify-between items-center px-4'>
 		<div>
 			<h1 className='text-primary'>Devcord </h1>
@@ -27,7 +27,10 @@ const SideBar = ({ logout }) => (
 				{name}
 			</div>
 			<ul className='dropdown-menu absolute hidden'>
-				<li className='flex px-4 py-2 rounded-b-lg bg-secondary w-full' onClick={logout}>
+				<li
+					className='flex px-4 py-2 rounded-b-lg bg-secondary w-full'
+					onClick={logout}
+				>
 					<TbLogout size={30} /> Logout
 				</li>
 			</ul>
@@ -57,13 +60,15 @@ const ChannelListContainer = ({
 	};
 
 	return (
-		<>
-			<SideBar logout={logout} />
+		<div>
 			<div>
+				<Navbar logout={logout} />
 				<ChannelSearch />
+			</div>
+			<div className='flex flex-col'>
 				<ChannelList
 					filters={filters}
-					channelRenderFilterFn={() => { }}
+					channelRenderFilterFn={() => {}}
 					List={(listProps) => (
 						<TeamChannelList
 							{...listProps}
@@ -75,16 +80,12 @@ const ChannelListContainer = ({
 						/>
 					)}
 					Preview={(previewProps) => (
-						<TeamChannelPreview
-							{...previewProps}
-							type='team'
-
-						/>
+						<TeamChannelPreview {...previewProps} type='team' />
 					)}
 				/>
 				<ChannelList
 					filters={filters}
-					channelRenderFilterFn={() => { }}
+					channelRenderFilterFn={() => {}}
 					List={(listProps) => (
 						<TeamChannelList
 							{...listProps}
@@ -92,7 +93,8 @@ const ChannelListContainer = ({
 							isCreating={isCreating}
 							setIsCreating={setIsCreating}
 							setIsEditing={setIsEditing}
-							setCreateType={setCreateType} />
+							setCreateType={setCreateType}
+						/>
 					)}
 					Preview={(previewProps) => (
 						<TeamChannelPreview
@@ -102,7 +104,7 @@ const ChannelListContainer = ({
 					)}
 				/>
 			</div>
-		</>
+		</div>
 	);
 };
 

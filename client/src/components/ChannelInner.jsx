@@ -12,7 +12,7 @@ import {
 
 export const GiphyContext = React.createContext({});
 
-const ChannelInner = ({ setIsEditing }) => {
+const ChannelInner = ({ setIsEditing,Message }) => {
 	const [giphyState, setGiphyState] = useState(false);
 	const { sendMessage } = useChannelActionContext();
 
@@ -40,10 +40,11 @@ const ChannelInner = ({ setIsEditing }) => {
 
 	return (
 		<GiphyContext.Provider value={{ giphyState, setGiphyState }}>
-			<div style={{ display: 'flex', width: '100%' }}>
+			<div className='w-full'>
 				<Window>
 					<TeamChannelHeader setIsEditing={setIsEditing} />
 					<MessageList />
+
 					<MessageInput
 						overrideSubmitHandler={overrideSubmitHandler}
 					/>

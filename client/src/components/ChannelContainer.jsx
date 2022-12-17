@@ -41,12 +41,11 @@ function ChannelContainer({
 	}
 
 	return (
-		<div>
+		<div >
 			<Channel
 				EmptyStateIndicator={EmptyState}
 				// Message={(messageProps, i) => <MessageText key={i} {...messageProps}/>}
 			>
-			<MessageList />
 				<ChannelInner setIsEditing={setIsEditing} />
 			</Channel>
 		</div>
