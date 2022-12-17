@@ -28,14 +28,20 @@ const SideBar = ({ logout }) => (
 			</div>
 			<ul className='dropdown-menu absolute hidden'>
 				<li className='flex px-4 py-2 rounded-b-lg bg-secondary w-full' onClick={logout}>
-						<TbLogout size={30} /> Logout
+					<TbLogout size={30} /> Logout
 				</li>
 			</ul>
 		</div>
 	</div>
 );
 
-const ChannelListContainer = () => {
+const ChannelListContainer = ({
+	isCreating,
+	setIsCreating,
+	isEditing,
+	setIsEditing,
+	setCreateType,
+}) => {
 	const { client } = useChatContext();
 	const filters = { members: { $in: [userId] } };
 	const logout = () => {
@@ -57,19 +63,36 @@ const ChannelListContainer = () => {
 				<ChannelSearch />
 				<ChannelList
 					filters={filters}
-					channelRenderFilterFn={() => {}}
+					channelRenderFilterFn={() => { }}
 					List={(listProps) => (
-						<TeamChannelList {...listProps} type='team' />
+						<TeamChannelList
+							{...listProps}
+							type='team'
+							isCreating={isCreating}
+							setIsCreating={setIsCreating}
+							setIsEditing={setIsEditing}
+							setCreateType={setCreateType}
+						/>
 					)}
 					Preview={(previewProps) => (
-						<TeamChannelPreview {...previewProps} type='team' />
+						<TeamChannelPreview
+							{...previewProps}
+							type='team'
+
+						/>
 					)}
 				/>
 				<ChannelList
 					filters={filters}
-					channelRenderFilterFn={() => {}}
+					channelRenderFilterFn={() => { }}
 					List={(listProps) => (
-						<TeamChannelList {...listProps} type='messaging' />
+						<TeamChannelList
+							{...listProps}
+							type='messaging'
+							isCreating={isCreating}
+							setIsCreating={setIsCreating}
+							setIsEditing={setIsEditing}
+							setCreateType={setCreateType} />
 					)}
 					Preview={(previewProps) => (
 						<TeamChannelPreview
