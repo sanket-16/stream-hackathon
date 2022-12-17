@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useChatContext } from 'stream-chat-react';
 import { IoMdSearch } from 'react-icons/io'
-
-function ChannelSearch() {
+import ResultsDropDown from './ResultsDropDown'
+// 
+function ChannelSearch({setToggleContainer}) {
 	const { client, setActiveChannel } = useChatContext();
 	const [query, setQuery] = useState('');
 	const [loading, setLoading] = useState(false);
@@ -16,7 +17,7 @@ function ChannelSearch() {
 		}
 	},[query])
 
-	async function getChannels(value) {
+	async function getChannels(text) {
 		try {
 			const channelRespone =  client.queryChannels({
 				type: 'team',
@@ -39,7 +40,13 @@ function ChannelSearch() {
 			setQuery('');
 		}
 	}
-	
+	const onSearch = (event) => {
+        event.preventDefault();
+
+        setLoading(true);
+        setQuery(event.target.value);
+        getChannels(event.target.value)
+    }
 	const setChannel = ( channel) =>{
 		setQuery('');
 		setActiveChannel(channel);
@@ -55,25 +62,24 @@ function ChannelSearch() {
 					type='text'
 					placeholder='Search'
 					value={query}
-					onChange={(event) => {
-						event.preventDefault();
-						setLoading(true);
-						setQuery(event.target.value);
-						getChannels(event.target.value);
-					}}
+					onChange={onSearch}
 				/>
 			</div>
-			{/* {query && (
+			{query && (
 				<ResultsDropDown 
 				teamChannels = {teamChannels}
 				directChannels = {directChannels}
 				loading = {loading}
 				setChannel = {setChannel}
 				setQuery = {setQuery}
-
+				setToggleContainer={setToggleContainer}
 
 				
 				/> */}
+
+
+
+			)}
 		</div>
 	);
 }

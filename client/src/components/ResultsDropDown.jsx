@@ -109,4 +109,4 @@ const ResultsDropdown = ({ teamChannels, directChannels, focusedId, loading, set
   );
 };
 
-// export default ResultsDropdown;
+export default ResultsDropdown;
