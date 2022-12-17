@@ -13,39 +13,39 @@ const userId = cookies.get('userId');
 const name = cookies.get('username');
 const image = cookies.get('avatarURL');
 console.log(image);
-const Navbar = ({ logout }) => (
-	<div className=''>
-		<div>
-			<h1 className='text-primary'>Devcord </h1>
+const Navbar = () => {
+	return (
+		<div className=''>
+			<div>
+				<h1 className='text-primary'>Devcord </h1>
+			</div>
 		</div>
-		<div className=' p-2 rounded-lg bg-secondary dropdown inline-block relative m-2'>
-			<div className='p-2 rounded inline-flex items-center'>
+	);
+};
+
+const Profile = ({ logout }) => {
+	return (
+		<div className='flex flex-col items-end justify-end h-full rounded-lg pb-4 '>
+			<div className='p-2 rounded'>
 				{image !== undefined ? (
 					<img src={image} alt='avatar' width={30} height={30} />
 				) : (
 					<IoPersonCircleSharp size={30} />
 				)}
-				{name}
 			</div>
-			<ul className='dropdown-menu absolute hidden'>
-				<li
-					className='flex px-4 py-2 rounded-b-lg bg-secondary w-full'
-					onClick={logout}
-				>
-					<TbLogout size={30} /> Logout
-				</li>
-			</ul>
+			<div className='rounded-lg p-2' onClick={logout}>
+				<TbLogout size={30} />
+			</div>
 		</div>
-	</div>
-);
+	);
+};
 
-const customChannelTeamFilter = (channels)=>{
-	return channels.filter((channel)=> channel.type === 'team');
-}
-const customChannelMessagingFilter = (channels)=>{
-	return channels.filter((channel)=> channel.type === 'messaging');
-}
-
+const customChannelTeamFilter = (channels) => {
+	return channels.filter((channel) => channel.type === 'team');
+};
+const customChannelMessagingFilter = (channels) => {
+	return channels.filter((channel) => channel.type === 'messaging');
+};
 
 const ChannelListContainer = ({
 	isCreating,
@@ -69,54 +69,67 @@ const ChannelListContainer = ({
 	};
 
 	return (
-		<div className=' col-span-1 '>
-			<div>
-				<Navbar logout={logout} />
-				<ChannelSearch />
+		<div className=' col-span-1 row-span-full grid grid-cols-2 grid-rows-6 '>
+			<div className='col-span-2 row-span-1'>
+				<Navbar />
 			</div>
-			<div className='flex flex-col'>
-				<ChannelList
-					filters={filters}
-					channelRenderFilterFn={customChannelTeamFilter}
-					List={(listProps) => (
-						<TeamChannelList
-							{...listProps}
-							type='team'
-							isCreating={isCreating}
-							setIsCreating={setIsCreating}
-							setIsEditing={setIsEditing}
-							setCreateType={setCreateType}
-						/>
-					)}
-					Preview={(previewProps) => (
-						<TeamChannelPreview {...previewProps} 
-						setIsCreating={setIsCreating}
-							setIsEditing={setIsEditing}
-						type='team' />
-					)}
-				/>
-				<ChannelList
-					filters={filters}
-					channelRenderFilterFn={customChannelMessagingFilter}
-					List={(listProps) => (
-						<TeamChannelList
-							{...listProps}
-							type='messaging'
-							isCreating={isCreating}
-							setIsCreating={setIsCreating}
-							setIsEditing={setIsEditing}
-							setCreateType={setCreateType}
-						/>
-					)}
-					Preview={(previewProps) => (
-						<TeamChannelPreview
-							{...previewProps}
-							setIsCreating={setIsCreating}
-							setIsEditing={setIsEditing}
-							type='messaging'
-						/>
-					)}
-				/>
+			<div className='col-span-2  row-span-5'>
+				<div className='grid grid-cols-5 h-full'>
+					<div className=' col-span-1 '>
+						<Profile logout={logout} />
+					</div>
+					<div className='col-span-4 '>
+						<div className='flex flex-col h-full'>
+							<ChannelSearch />
+							<ChannelList
+								filters={filters}
+								channelRenderFilterFn={customChannelTeamFilter}
+								List={(listProps) => (
+									<TeamChannelList
+										{...listProps}
+										type='team'
+										isCreating={isCreating}
+										setIsCreating={setIsCreating}
+										setIsEditing={setIsEditing}
+										setCreateType={setCreateType}
+									/>
+								)}
+								Preview={(previewProps) => (
+									<TeamChannelPreview
+										{...previewProps}
+										setIsCreating={setIsCreating}
+										setIsEditing={setIsEditing}
+										type='team'
+									/>
+								)}
+							/>
+							<ChannelList
+								filters={filters}
+								channelRenderFilterFn={
+									customChannelMessagingFilter
+								}
+								List={(listProps) => (
+									<TeamChannelList
+										{...listProps}
+										type='messaging'
+										isCreating={isCreating}
+										setIsCreating={setIsCreating}
+										setIsEditing={setIsEditing}
+										setCreateType={setCreateType}
+									/>
+								)}
+								Preview={(previewProps) => (
+									<TeamChannelPreview
+										{...previewProps}
+										setIsCreating={setIsCreating}
+										setIsEditing={setIsEditing}
+										type='messaging'
+									/>
+								)}
+							/>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	);
@@ -127,7 +140,7 @@ const ChannelListContainer = ({
 // 		<>
 // 		<div>
 // 			 <ChannelListContent
-			  
+
 // 			  setIsCreating = {setIsCreating}
 // 			  setIsEditing = {setIsEditing}
 // 			  setCreateType = {setCreateType}
@@ -135,14 +148,14 @@ const ChannelListContainer = ({
 // 		</div>
 
 // 		<div style={{left : toggleContainer ? "0%" : "-89%", backgroundColor:"black"}}>
-			
+
 // 			<div onClick={()=>
 // 				setToggleContainer((prevToggleContainer)=> !prevToggleContainer)
 // 			}>
 
 // 			</div>
 // 			<ChannelListContent
-			  
+
 // 			  setIsCreating = {setIsCreating}
 // 			  setIsEditing = {setIsEditing}
 // 			  setCreateType = {setCreateType}

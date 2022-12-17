@@ -41,7 +41,7 @@ function ChannelContainer({
 	}
 
 	return (
-		<div className='col-span-3' >
+		<div className='col-span-4' >
 			<Channel
 				EmptyStateIndicator={EmptyState}
 				// Message={(messageProps, i) => <MessageText key={i} {...messageProps}/>}
