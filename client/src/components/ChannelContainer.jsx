@@ -15,7 +15,7 @@ function ChannelContainer({
 
 	if (isCreating) {
 		return (
-			<div>
+			<div className=' '>
 				<CreateChannel
 					createType={createType}
 					setIsCreating={setIsCreating}

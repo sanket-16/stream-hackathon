@@ -12,7 +12,7 @@ const cookies = new Cookies();
 const apiKey = import.meta.env.VITE_API_KEY;
 const authToken = cookies.get('token');
 const client = StreamChat.getInstance(apiKey);
-console.log(cookies,apiKey,authToken,client)
+console.log(cookies, apiKey, authToken, client)
 if (authToken) {
 	client.connectUser(
 		{
@@ -32,24 +32,25 @@ const App = () => {
 	const [isEditing, setIsEditing] = useState(false);
 	if (!authToken) return <Auth />;
 	return (
-		<div className='h-screen'>
+		<div className='h-screen '>
 			<Chat client={client} theme='team dark'>
-				<div className='grid grid-cols-5'>
-				<ChannelListContainer
-					isCreating = {isCreating}
-					setIsCreating = {setIsCreating}
-					isEditing = {isEditing}
-					setIsEditing = {setIsEditing}
-					setCreateType = {setCreateType}
-				/>
-				<ChannelContainer 
-					isCreating = {isCreating}
-					setIsCreating = {setIsCreating}
-					isEditing = {isEditing}
-					setIsEditing = {setIsEditing}
-					createType = {createType}
-					setCreateType = {setCreateType}
-				/>
+				<div className='grid grid-cols-5 w-full'>
+					<ChannelListContainer
+						isCreating={isCreating}
+						setIsCreating={setIsCreating}
+						isEditing={isEditing}
+						setIsEditing={setIsEditing}
+						setCreateType={setCreateType}
+					/>
+
+						<ChannelContainer
+							isCreating={isCreating}
+							setIsCreating={setIsCreating}
+							isEditing={isEditing}
+							setIsEditing={setIsEditing}
+							createType={createType}
+							setCreateType={setCreateType}
+						/>
 				</div>
 			</Chat>
 		</div>

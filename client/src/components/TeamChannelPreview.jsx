@@ -14,8 +14,11 @@ function TeamChannelPreview({ setActiveChannel, setIsCreating, setIsEditing, cha
     }
     function ChannelPreview() {
         return (
-            <p className='ml-4 text-xl  mb-4'>
-                # {channel?.data?.name || channel?.data?.id}
+            <p className=' text-xl  mb-4 '>
+            <span className='ml-4 items-center'>
+
+                <span className='text-[#9A9A9A]'>#</span> | {channel?.data?.name || channel?.data?.id}
+            </span>
             </p>
         );
     }

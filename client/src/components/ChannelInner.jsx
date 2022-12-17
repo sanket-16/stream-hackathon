@@ -70,13 +70,13 @@ const TeamChannelHeader = ({ setIsEditing }) => {
 			return (
 				<div>
 					{members.map(({ user }, i) => (
-						<div key={i} className=''>
+						<div key={i} className='flex  items-center gap-2 ml-4 mt-5'>
 							<Avatar
 								image={user.image}
 								name={user.fullName || user.id}
-								size={32}
+								size={35}
 							/>
-							<p className=''>{user.fullName || user.id}</p>
+							<p className='text-lg '>{user.name || user.id}</p>
 						</div>
 					))}
 

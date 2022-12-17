@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Avatar, useChatContext } from 'stream-chat-react';
-import {TiTickOutline} from 'react-icons/ti'
-import {BsCircle} from 'react-icons/bs'
+import { BsCircle, BsFillCheckCircleFill } from 'react-icons/bs'
 
 
 
@@ -10,9 +9,9 @@ import {BsCircle} from 'react-icons/bs'
 const ListContainer = ({ children }) => {
     return (
         <div >
-            <div >
+            <div className='grid grid-cols-2 text-xl border-b-2 text-center' >
                 <p>User</p>
-                <p>Invite</p>
+                <p className=''>Invite</p>
             </div>
             {children}
         </div>
@@ -25,7 +24,7 @@ const UserItem = ({ user, setSelectedUsers }) => {
     const [selected, setSelected] = useState(false)
 
     const handleSelect = () => {
-        if(selected) {
+        if (selected) {
             setSelectedUsers((prevUsers) => prevUsers.filter((prevUser) => prevUser !== user.id))
         } else {
             setSelectedUsers((prevUsers) => [...prevUsers, user.id])
@@ -35,12 +34,30 @@ const UserItem = ({ user, setSelectedUsers }) => {
     }
 
     return (
+        // <div className='grid grid-cols-2 text-center space-x-8  '  onClick={handleSelect}>
+        //     <div className='flex overflow-hidden mt-5' >
+        //         <Avatar image={user.image} name={user.fullName || user.id} size={32} />
+        //         <p >{user.name || user.fullNameu || user.id}</p>
+        //     </div>
+        //     <span className='mt-5 px-10'>
+        //     {selected ? <BsFillCheckCircleFill size={30} color="#45AD17" /> : <BsCircle size={30}/>}
+
+        //     </span>
+        // </div>
+
         <div  onClick={handleSelect}>
-            <div >
-                <Avatar image={user.image} name={user.fullName || user.id} size={32} />
-                <p >{user.name || user.fullNameu || user.id}</p>
+            <div className=' overflow-hidden  bg-[#494949] flex items-start  mt-5 rounded-md justify-between px-2 py-3   '>
+                <div className=' items-center' >
+                    <Avatar image={user.image} name={user.fullName || user.id} size={32} />
+                    <p >{user.name || user.fullNameu || user.id}</p>
+                </div>
+
+                <span className=''>
+                    {selected ? <BsFillCheckCircleFill size={20} color="#45AD17" /> : <BsCircle size={20} />}
+
+                </span>
             </div>
-            {selected ? <TiTickOutline color='white' /> : <BsCircle/>}
+
         </div>
     )
 }
@@ -56,32 +73,32 @@ function UserList({ setSelectedUsers }) {
 
     useEffect(() => {
         const getUsers = async () => {
-            if(loading) return;
+            if (loading) return;
 
             setLoading(true);
-            
+
             try {
                 const response = await client.queryUsers(
                     { id: { $ne: client.userID } },
                     { id: 1 },
-                    { limit: 8 } 
+                    { limit: 8 }
                 );
 
-                if(response.users.length) {
+                if (response.users.length) {
                     setUsers(response.users);
                 } else {
                     setListEmpty(true);
                 }
             } catch (error) {
-               setError(true);
+                setError(true);
             }
             setLoading(false);
         }
 
-        if(client) getUsers()
+        if (client) getUsers()
     }, []);
 
-    if(error) {
+    if (error) {
         return (
             <ListContainer>
                 <div >
@@ -91,7 +108,7 @@ function UserList({ setSelectedUsers }) {
         )
     }
 
-    if(listEmpty) {
+    if (listEmpty) {
         return (
             <ListContainer>
                 <div >
@@ -107,7 +124,7 @@ function UserList({ setSelectedUsers }) {
                 Loading users...
             </div> : (
                 users?.map((user, i) => (
-                  <UserItem index={i} key={user.id} user={user} setSelectedUsers={setSelectedUsers} />  
+                    <UserItem index={i} key={user.id} user={user} setSelectedUsers={setSelectedUsers} />
                 ))
             )}
         </ListContainer>
