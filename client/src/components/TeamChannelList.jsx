@@ -30,8 +30,7 @@ function TeamChannelList({ children, error = false, loading, type, isCreating, s
 					type={type === 'team' ? 'team' : 'messaging'}
 				/>
 			</div>
-			{children
-			}
+			{children}
 		</div>
 	);
 }

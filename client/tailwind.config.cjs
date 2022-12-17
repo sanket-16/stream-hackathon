@@ -10,8 +10,8 @@ module.exports = {
       serif: ['Segoe UI', 'Roboto', 'Open Sans', 'Helvetica Neue', 'sans-serif'],
     },
       colors: {
-        'background':'#131313',
-        'primary':'#1565FF',
+        'background':'#343434',
+        'primary':'#3861FB',
         'secondary':'#494949',
         'white':'#FFFFFF'
       }

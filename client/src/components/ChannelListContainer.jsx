@@ -13,28 +13,30 @@ const userId = cookies.get('userId');
 const name = cookies.get('username');
 const image = cookies.get('avatarURL');
 console.log(image);
-const Navbar = () => {
-	return (
-		<div className=''>
-			<div>
-				<h1 className='text-primary'>Devcord </h1>
-			</div>
-		</div>
-	);
-};
 
 const Profile = ({ logout }) => {
 	return (
 		<div className='flex flex-col items-end justify-end h-full rounded-lg pb-4 '>
-			<div className='p-2 rounded'>
+			<div className='p-2 '>
 				{image !== undefined ? (
-					<img src={image} alt='avatar' width={30} height={30} />
+					<img
+						className='rounded-full'
+						src={image}
+						alt='avatar'
+						width={30}
+						height={30}
+					/>
 				) : (
 					<IoPersonCircleSharp size={30} />
 				)}
 			</div>
-			<div className='rounded-lg p-2' onClick={logout}>
-				<TbLogout size={30} />
+			<div className='flex items-center justify-center p-2'>
+				<div
+					className='flex items-center justify-center rounded-full bg-secondary p-2'
+					onClick={logout}
+				>
+					<TbLogout size={20} />
+				</div>
 			</div>
 		</div>
 	);
@@ -69,21 +71,21 @@ const ChannelListContainer = ({
 	};
 
 	return (
-		<div className=' col-span-1 row-span-full grid grid-cols-2 grid-rows-6 '>
-			<div className='col-span-2 row-span-1'>
-				<Navbar />
+		<div className=' col-span-1 row-span-full grid grid-cols-2 grid-rows-6  '>
+			<div className='col-span-2 row-span-1  '>
+				<h1 className='text-primary w-full text-center font-bold py-5 '>Devcord </h1>
 			</div>
-			<div className='col-span-2  row-span-5'>
+			<div className='col-span-2  row-span-5 '>
 				<div className='grid grid-cols-5 h-full'>
 					<div className=' col-span-1 '>
 						<Profile logout={logout} />
 					</div>
 					<div className='col-span-4 '>
 						<div className='flex flex-col h-full mr-4'>
-						<div className='mb-4'>
-						<ChannelSearch />
-						</div>
-							
+							<div className='mb-4'>
+								<ChannelSearch />
+							</div>
+
 							<ChannelList
 								filters={filters}
 								channelRenderFilterFn={customChannelTeamFilter}

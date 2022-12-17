@@ -24,24 +24,24 @@ function ChannelContainer({
 		);
 	}
 	if (isEditing) {
-		return (
-			<div>
-				<EditChannel setIsEditing={setIsEditing} />
-			</div>
-		);
+		return <EditChannel setIsEditing={setIsEditing} />;
 	}
 
 	function EmptyState() {
 		return (
-			<div>
-				<p>This is the beginning of the chat history</p>
-				<p>Send messages,attachments,links,images and more</p>
+			<div className='m-4'>
+				<h3 className='text-xl'>
+					This is the beginning of the chat history
+				</h3>
+				<p className='text-white/50'>
+					Send messages,attachments,links,images and more
+				</p>
 			</div>
 		);
 	}
 
 	return (
-		<div className='col-span-4' >
+		<div className='col-span-4'>
 			<Channel
 				EmptyStateIndicator={EmptyState}
 				// Message={(messageProps, i) => <MessageText key={i} {...messageProps}/>}

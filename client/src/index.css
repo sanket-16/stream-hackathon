@@ -10,8 +10,6 @@
 	}
 	h1 {
 		@apply text-5xl;
-		@apply mx-4;
-		@apply my-2; 
 	}
 	h2 {
 		@apply text-2xl;

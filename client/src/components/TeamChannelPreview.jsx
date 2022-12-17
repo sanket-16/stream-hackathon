@@ -6,7 +6,7 @@ function TeamChannelPreview({ setActiveChannel, setIsCreating, setIsEditing, cha
     function DirectPreview() {
         const members = Object.values(channel.state.members).filter(({ user }) => user.id !== client.userID)
         return (
-            <div className='flex mb-4 ml-3  items-center  '>
+            <div className='flex items-center m-2 p-2 bg-secondary rounded-lg text-lg hover:text-primary '>
                 <Avatar image={members[0]?.user?.image} name={members[0]?.user?.name} size={24} />
                 <p className='text-lg '>{members[0]?.user?.name}</p>
             </div>
@@ -14,8 +14,8 @@ function TeamChannelPreview({ setActiveChannel, setIsCreating, setIsEditing, cha
     }
     function ChannelPreview() {
         return (
-            <p className='ml-4 text-xl  mb-4'>
-                # {channel?.data?.name || channel?.data?.id}
+            <p className='m-2 p-2 bg-secondary rounded-lg text-lg hover:text-primary'>
+                 {channel?.data?.name || channel?.data?.id}
             </p>
         );
     }

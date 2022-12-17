@@ -4,6 +4,7 @@ function CloseCreateChannel({ setIsCreating, setIsEditing }) {
     return (
         <>
             <AiOutlineClose
+                size={30}
                 onClick={() => {
                     if (setIsCreating) setIsCreating(false);
                     if (setIsEditing) setIsEditing(false);
