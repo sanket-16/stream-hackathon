@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Avatar, useChatContext } from 'stream-chat-react';
-import {FcInvite} from 'react-icons/fc'
+import {TiTickOutline} from 'react-icons/ti'
+import {BsCircle} from 'react-icons/bs'
 
 
 
@@ -36,10 +37,10 @@ const UserItem = ({ user, setSelectedUsers }) => {
     return (
         <div  onClick={handleSelect}>
             <div >
-                <Avatar image={user.image} name={user.fullName || user.username} size={32} />
-                <p >{user.fullName || user.id}</p>
+                <Avatar image={user.image} name={user.fullName || user.id} size={32} />
+                <p >{user.name || user.fullNameu || user.id}</p>
             </div>
-            {selected ? <FcInvite /> : <div />}
+            {selected ? <TiTickOutline color='white' /> : <BsCircle/>}
         </div>
     )
 }
