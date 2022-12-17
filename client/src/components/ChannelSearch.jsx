@@ -75,7 +75,7 @@ function ChannelSearch({setToggleContainer}) {
 				setToggleContainer={setToggleContainer}
 
 				
-				/> */}
+				/>
 
 
 
