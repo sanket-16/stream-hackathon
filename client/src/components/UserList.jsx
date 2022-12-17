@@ -113,5 +113,4 @@ function UserList({ setSelectedUsers }) {
         </ListContainer>
     )
 }
-
-export default UserList
+export default UserList;

@@ -1,13 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { useChatContext } from 'stream-chat-react';
 import {IoMdSearch} from 'react-icons/io'
+import { Client } from 'faye';
 function ChannelSearch() {
+	const {client , setActiveChannel} = useChatContext();
 	const [query, setQuery] = useState('');
 	const [loading, setLoading] = useState(false);
+	const [TeamChannels , setTeamChannels] = useState([]);
+	const [directChannels , setDirectChnnels] = useState([]);
+
+
 
 	async function getChannels(value) {
 		try {
-			//TODO
+			 const channelRespone = 
 		} catch (error) {
 			setQuery('');
 		}

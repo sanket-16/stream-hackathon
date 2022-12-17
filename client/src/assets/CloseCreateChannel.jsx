@@ -13,4 +13,4 @@ function CloseCreateChannel({ setIsCreating, setIsEditing }) {
     )
 }
 
-export default CloseCreateChannel
+export default CloseCreateChannel;
