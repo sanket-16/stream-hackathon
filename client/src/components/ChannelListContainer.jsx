@@ -38,7 +38,15 @@ const Navbar = ({ logout }) => (
 	</div>
 );
 
-const ChannelListContainer = ({
+const customChannelTeamFilter = (channels)=>{
+	return channels.filter((channel)=> channel.type === 'team');
+}
+const customChannelMessagingFilter = (channels)=>{
+	return channels.filter((channel)=> channel.type === 'messaging');
+}
+
+
+const ChannelListContent = ({
 	isCreating,
 	setIsCreating,
 	isEditing,
@@ -68,7 +76,7 @@ const ChannelListContainer = ({
 			<div className='flex flex-col'>
 				<ChannelList
 					filters={filters}
-					channelRenderFilterFn={() => {}}
+					channelRenderFilterFn={customChannelTeamFilter}
 					List={(listProps) => (
 						<TeamChannelList
 							{...listProps}
@@ -85,7 +93,7 @@ const ChannelListContainer = ({
 				/>
 				<ChannelList
 					filters={filters}
-					channelRenderFilterFn={() => {}}
+					channelRenderFilterFn={customChannelMessagingFilter}
 					List={(listProps) => (
 						<TeamChannelList
 							{...listProps}
@@ -107,5 +115,8 @@ const ChannelListContainer = ({
 		</div>
 	);
 };
+const ChannelListContainer = ({setCreateType , setIsCreating , setIsEditing }) =>{
+	
+}
 
 export default ChannelListContainer;
