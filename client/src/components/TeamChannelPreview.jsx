@@ -15,7 +15,7 @@ function TeamChannelPreview({setActiveChannel, setIsCreating, setIsEditing,chann
     function ChannelPreview() {
         return (
             <p>
-                 {channel?.data?.name || channel?.data?.id}
+                 # {channel?.data?.name || channel?.data?.id}
             </p>
         );
     }

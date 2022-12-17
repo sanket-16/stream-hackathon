@@ -25,7 +25,7 @@ function EditChannel({setIsEditing}) {
   const [selectedUsers , setSelectedUsers] = useState([]);
   const updateChannel = async (e) =>{
     e.preventDefault();
-    const nameChanged = channelName != (channel.data.name || channel.data.name);
+    const nameChanged = channelName != (channel.data.name || channel.data.id);
      if(nameChanged){
       await channel.update({name : channelName}, {text : `Channel name changed to ${channelName}`});
      }
@@ -43,7 +43,9 @@ function EditChannel({setIsEditing}) {
         <p>Edit Channel</p>
         <CloseCreateChannel setIsEditing = {setIsEditing} />
         </div>
-        <ChannelNameInput channelName={channelName} setChannelName = {setChannelName}/>
+        <ChannelNameInput 
+        channelName={channelName} 
+        setChannelName = {setChannelName}/>
         <UserList setSelectedUsers = {setSelectedUsers} />
         <div onClick={updateChannel}>
           Save Changes
