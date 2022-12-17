@@ -13,7 +13,7 @@ const name = cookies.get('username');
 const image = cookies.get('avatarURL');
 console.log(image);
 const Navbar = ({ logout }) => (
-	<div className='flex justify-between items-center px-4'>
+	<div className=''>
 		<div>
 			<h1 className='text-primary'>Devcord </h1>
 		</div>
@@ -60,7 +60,7 @@ const ChannelListContainer = ({
 	};
 
 	return (
-		<div>
+		<div className=' col-span-1 '>
 			<div>
 				<Navbar logout={logout} />
 				<ChannelSearch />

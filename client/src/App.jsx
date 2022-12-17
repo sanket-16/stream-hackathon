@@ -34,6 +34,7 @@ const App = () => {
 	return (
 		<div className='h-screen'>
 			<Chat client={client} theme='team dark'>
+				<div className='grid grid-cols-4'>
 				<ChannelListContainer
 					isCreating = {isCreating}
 					setIsCreating = {setIsCreating}
@@ -49,6 +50,7 @@ const App = () => {
 					createType = {createType}
 					setCreateType = {setCreateType}
 				/>
+				</div>
 			</Chat>
 		</div>
 	);
