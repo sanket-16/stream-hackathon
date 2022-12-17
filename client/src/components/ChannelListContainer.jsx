@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChannelList } from 'stream-chat-react';
+import { ChannelList, useChatContext } from 'stream-chat-react';
 import Cookies from 'universal-cookie';
 
 import ChannelSearch from './ChannelSearch';
@@ -8,6 +8,7 @@ import TeamChannelPreview from './TeamChannelPreview';
 
 
 const cookies = new Cookies();
+const userId =  cookies.get('userId');
 
 const SideBar = ({logout}) => (
 	<div >
@@ -33,7 +34,8 @@ const CompanyHeader = () => (
 
 
 const ChannelListContainer = () => {
-
+	const { client } = useChatContext();
+	const filters = { members: { $in: [userId] }};
 	const logout = () => {
 			cookies.remove("token");
 			cookies.remove('userId');
@@ -55,7 +57,7 @@ const ChannelListContainer = () => {
 				<CompanyHeader />
 				<ChannelSearch />
 				<ChannelList
-					filters={{}}
+					filters={filters}
 					channelRenderFilterFn={() => { }}
 					List={(listProps) => (
 						<TeamChannelList
@@ -73,7 +75,7 @@ const ChannelListContainer = () => {
 					)}
 				/>
 				<ChannelList
-					filters={{}}
+					filters={filters}
 					channelRenderFilterFn={() => { }}
 					List={(listProps) => (
 						<TeamChannelList

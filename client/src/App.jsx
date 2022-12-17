@@ -11,7 +11,7 @@ const cookies = new Cookies();
 const apiKey = import.meta.env.VITE_API_KEY;
 const authToken = cookies.get('token');
 const client = StreamChat.getInstance(apiKey);
-
+console.log(cookies,apiKey,authToken,client)
 if (authToken) {
 	client.connectUser(
 		{

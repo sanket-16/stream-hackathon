@@ -1,13 +1,13 @@
 import React from 'react';
 
 function TeamChannelList({ children, error = false, loading, type }) {
-	if (error) {
-		return type === 'team' ? (
-			<div>
-				<p>Connection error, please wait a moment and try again.</p>
-			</div>
-		) : null;
-	}
+	// if (error) {
+	// 	return type === 'team' ? (
+	// 		<div>
+	// 			<p>Connection error, please wait a moment and try again.</p>
+	// 		</div>
+	// 	) : null;
+	// }
 	if (loading) {
 		return (
 			<div>
