@@ -34,7 +34,7 @@ const App = () => {
 	return (
 		<div className='h-screen'>
 			<Chat client={client} theme='team dark'>
-				<div className='grid grid-cols-4'>
+				<div className='grid grid-cols-5'>
 				<ChannelListContainer
 					isCreating = {isCreating}
 					setIsCreating = {setIsCreating}

@@ -13,6 +13,11 @@
 		@apply mx-4;
 		@apply my-2; 
 	}
+	h2 {
+		@apply text-2xl;
+		@apply mx-4;
+		@apply my-2; 
+	}
 
 	label {
 		@apply text-white/50;
@@ -50,4 +55,8 @@
 	.dropdown:hover .dropdown-menu {
 		@apply block;
 	  }
+
+	input .search-input {
+		@apply p-2;
+	}
 }

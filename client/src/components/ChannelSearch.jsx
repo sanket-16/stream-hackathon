@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useChatContext } from 'stream-chat-react';
 import { IoMdSearch } from 'react-icons/io'
-import { text } from 'body-parser';
+
 function ChannelSearch() {
 	const { client, setActiveChannel } = useChatContext();
 	const [query, setQuery] = useState('');
@@ -48,9 +48,10 @@ function ChannelSearch() {
 
 	return (
 		<div>
-			<div className='flex gap-2 items-center'>
+			<div className='flex m-4'>
 				<IoMdSearch size={30} />
 				<input
+					className='search-input'
 					type='text'
 					placeholder='Search'
 					value={query}
@@ -73,10 +74,6 @@ function ChannelSearch() {
 
 				
 				/> */}
-
-
-
-			)}
 		</div>
 	);
 }
