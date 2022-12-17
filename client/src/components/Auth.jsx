@@ -21,14 +21,14 @@ function Auth() {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		// console.log(form);
-		const { fullName, username, password, phoneNumber, avatarURL } = form;
+		const {  username, password, phoneNumber, avatarURL } = form;
 
 		// const URL = `${import.meta.env.VITE_PROXY}/auth`
 		const URL = 'http://localhost:8080/auth';
 		const {
-			data: { token, userId, hashedPassword },
+			data: { token, userId, hashedPassword , fullName },
 		} = await axios.post(`${URL}/${isSignup ? 'signup' : 'signin'}`, {
-			fullName,
+			fullName: form.fullName,
 			username,
 			password,
 			phoneNumber,
