@@ -1,28 +1,55 @@
 import React, { useState, useEffect } from 'react';
 import { useChatContext } from 'stream-chat-react';
-import {IoMdSearch} from 'react-icons/io'
-import { Client } from 'faye';
+import { IoMdSearch } from 'react-icons/io'
+import { text } from 'body-parser';
 function ChannelSearch() {
-	const {client , setActiveChannel} = useChatContext();
+	const { client, setActiveChannel } = useChatContext();
 	const [query, setQuery] = useState('');
 	const [loading, setLoading] = useState(false);
-	const [TeamChannels , setTeamChannels] = useState([]);
-	const [directChannels , setDirectChnnels] = useState([]);
+	const [teamChannels, setTeamChannels] = useState([]);
+	const [directChannels, setDirectChnnels] = useState([]);
 
-
+    useEffect(()=>{
+        if(!query){
+			setTeamChannels([]);
+			setDirectChnnels([])
+		}
+	},[query])
 
 	async function getChannels(value) {
 		try {
-			 const channelRespone = 
-		} catch (error) {
+			const channelRespone =  client.queryChannels({
+				type: 'team',
+				name: { $autocomplete: text },
+				members: { $in: [client.userID] }
+			}
+
+			)
+		const userResponse =  client.queryUsers({
+			id:{$ne : client.userID},
+			name: {$autocomplete:text}
+		})
+
+		const [channels, {users}] = await Promise.all([channelRespone , userResponse]);
+
+		if (channels.length) setTeamChannels(channels);
+		if (users.length) setDirectChnnels(users);
+	}
+		catch (error) {
 			setQuery('');
 		}
+	}
+	
+	const setChannel = ( channel) =>{
+		setQuery('');
+		setActiveChannel(channel);
+
 	}
 
 	return (
 		<div>
 			<div className='flex gap-2 items-center'>
-				<IoMdSearch size={30}/>
+				<IoMdSearch size={30} />
 				<input
 					type='text'
 					placeholder='Search'
@@ -35,6 +62,21 @@ function ChannelSearch() {
 					}}
 				/>
 			</div>
+			{/* {query && (
+				<ResultsDropDown 
+				teamChannels = {teamChannels}
+				directChannels = {directChannels}
+				loading = {loading}
+				setChannel = {setChannel}
+				setQuery = {setQuery}
+
+
+				
+				/> */}
+
+
+
+			)}
 		</div>
 	);
 }
