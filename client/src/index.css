@@ -45,3 +45,9 @@
   }
 
 }
+
+@layer components {
+	.dropdown:hover .dropdown-menu {
+		@apply block;
+	  }
+}

@@ -1,101 +1,86 @@
 import React from 'react';
 import { ChannelList, useChatContext } from 'stream-chat-react';
 import Cookies from 'universal-cookie';
-
+import { TbLogout } from 'react-icons/tb';
+import { IoPersonCircleSharp } from 'react-icons/io5';
 import ChannelSearch from './ChannelSearch';
 import TeamChannelList from './TeamChannelList';
 import TeamChannelPreview from './TeamChannelPreview';
 
-
 const cookies = new Cookies();
-const userId =  cookies.get('userId');
-
-const SideBar = ({logout}) => (
-	<div >
-		<div >
-			<div >
-				Company logo
-			</div>
+const userId = cookies.get('userId');
+const name = cookies.get('username');
+const image = cookies.get('avatarURL');
+console.log(image);
+const SideBar = ({ logout }) => (
+	<div className='flex justify-between items-center px-4'>
+		<div>
+			<h1 className='text-primary'>Devcord </h1>
 		</div>
-		<div >
-			<div onClick={logout} >
-				logout
+		<div className=' p-2 rounded-lg bg-secondary dropdown inline-block relative m-2'>
+			<div className='p-2 rounded inline-flex items-center'>
+				{image !== undefined ? (
+					<img src={image} alt='avatar' width={30} height={30} />
+				) : (
+					<IoPersonCircleSharp size={30} />
+				)}
+				{name}
 			</div>
+			<ul className='dropdown-menu absolute hidden'>
+				<li className='flex px-4 py-2 rounded-b-lg bg-secondary w-full' onClick={logout}>
+						<TbLogout size={30} /> Logout
+				</li>
+			</ul>
 		</div>
 	</div>
 );
 
-const CompanyHeader = () => (
-	<div>
-		<p >Stream </p>
-	</div>
-)
-
-
-
 const ChannelListContainer = () => {
 	const { client } = useChatContext();
-	const filters = { members: { $in: [userId] }};
+	const filters = { members: { $in: [userId] } };
 	const logout = () => {
-			cookies.remove("token");
-			cookies.remove('userId');
-			cookies.remove('username');
-			cookies.remove('fullName');
-			cookies.remove('avatarURL');
-			cookies.remove('hashedPassword');
-			cookies.remove('phoneNumber');
+		cookies.remove('token');
+		cookies.remove('userId');
+		cookies.remove('username');
+		cookies.remove('fullName');
+		cookies.remove('avatarURL');
+		cookies.remove('hashedPassword');
+		cookies.remove('phoneNumber');
 
-			window.location.reload();
-	}
-
-
+		window.location.reload();
+	};
 
 	return (
 		<>
 			<SideBar logout={logout} />
-			<div >
-				<CompanyHeader />
+			<div>
 				<ChannelSearch />
 				<ChannelList
 					filters={filters}
-					channelRenderFilterFn={() => { }}
+					channelRenderFilterFn={() => {}}
 					List={(listProps) => (
-						<TeamChannelList
-							{...listProps}
-							type="team"
-
-						/>
+						<TeamChannelList {...listProps} type='team' />
 					)}
 					Preview={(previewProps) => (
-						<TeamChannelPreview
-							{...previewProps}
-
-							type="team"
-						/>
+						<TeamChannelPreview {...previewProps} type='team' />
 					)}
 				/>
 				<ChannelList
 					filters={filters}
-					channelRenderFilterFn={() => { }}
+					channelRenderFilterFn={() => {}}
 					List={(listProps) => (
-						<TeamChannelList
-							{...listProps}
-							type="messaging"
-
-						/>
+						<TeamChannelList {...listProps} type='messaging' />
 					)}
 					Preview={(previewProps) => (
 						<TeamChannelPreview
 							{...previewProps}
-
-							type="messaging"
+							type='messaging'
 						/>
 					)}
 				/>
 			</div>
 		</>
 	);
-}
-
+};
 
 export default ChannelListContainer;
