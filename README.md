@@ -1,5 +1,9 @@
 # Developers Chat Application / Devcord
 
+## Demo -
+
+https://devcord-stream.vercel.app/
+
 ## Desrciption - 
 This project is a chat applciation for developers , where we can host different types of chat rooms and send messages to various users.
 
@@ -9,6 +13,8 @@ This project is a chat applciation for developers , where we can host different 
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
 ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)
+
+Hosted on [Railway(Backend)](https://railway.app) and [Vercel(Frontend)](https://vercel.com).
 
 ## Chat API -
 
@@ -22,8 +28,7 @@ This project is a chat applciation for developers , where we can host different 
 
 ## Screenshots -
 
-
-
+![Group 11](https://user-images.githubusercontent.com/64531568/208296416-218780d8-dac3-4edd-b5b9-c181ba456ecd.png)
 
 
 ## Installation
@@ -39,6 +44,9 @@ Clone the project
 ```bash
   cd stream-hackathon
 ```
+
+Don't forget to add .env files and include you own API keys and Id's from [Stream](https://getstream.io).
+The content of env files for frontend and backend is provided in .env.example.
 
 ## Run Locally
 
