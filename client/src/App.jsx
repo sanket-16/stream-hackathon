@@ -1,6 +1,5 @@
 import { StreamChat } from 'stream-chat';
 import { Chat } from 'stream-chat-react';
-// import 'stream-chat-react/dist/css/index.css';
 import '@stream-io/stream-chat-css/dist/css/index.css';
 import ChannelContainer from './components/ChannelContainer';
 import ChannelListContainer from './components/ChannelListContainer';
@@ -12,7 +11,7 @@ const cookies = new Cookies();
 const apiKey = import.meta.env.VITE_API_KEY;
 const authToken = cookies.get('token');
 const client = StreamChat.getInstance(apiKey);
-// console.log(cookies,apiKey,authToken,client)
+
 if (authToken) {
 	client.connectUser(
 		{

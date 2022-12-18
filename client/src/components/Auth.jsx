@@ -16,14 +16,14 @@ function Auth() {
 	const [isSignup, setisSignup] = useState(true);
 	const handleChange = (e) => {
 		setForm({ ...form, [e.target.name]: e.target.value });
-		// console.log(form);
+		
 	};
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		// console.log(form);
+		
 		const {  username, password, phoneNumber, avatarURL } = form;
 
-		// const URL = `${import.meta.env.VITE_PROXY}/auth`
+		
 		const URL = 'http://localhost:8080/auth';
 		const {
 			data: { token, userId, hashedPassword , fullName },

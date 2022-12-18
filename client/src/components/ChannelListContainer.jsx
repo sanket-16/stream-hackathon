@@ -139,36 +139,6 @@ const ChannelListContainer = ({
 		</div>
 	);
 };
-// const ChannelListContainer = ({setCreateType , setIsCreating , setIsEditing }) =>{
-//       const [ toggleContainer , setToggleContainer] = useState(false)
-// 	  return(
-// 		<>
-// 		<div>
-// 			 <ChannelListContent
 
-// 			  setIsCreating = {setIsCreating}
-// 			  setIsEditing = {setIsEditing}
-// 			  setCreateType = {setCreateType}
-// 			 />
-// 		</div>
-
-// 		<div style={{left : toggleContainer ? "0%" : "-89%", backgroundColor:"black"}}>
-
-// 			<div onClick={()=>
-// 				setToggleContainer((prevToggleContainer)=> !prevToggleContainer)
-// 			}>
-
-// 			</div>
-// 			<ChannelListContent
-
-// 			  setIsCreating = {setIsCreating}
-// 			  setIsEditing = {setIsEditing}
-// 			  setCreateType = {setCreateType}
-// 			  setToggleContainer={setToggleContainer}
-// 			 />
-// 		</div>
-// 		</>
-// 	  )
-// }
 
 export default ChannelListContainer;
