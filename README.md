@@ -21,3 +21,57 @@ This project is a chat applciation for developers , where we can host different 
 * [Omkar Gurav](https://github.com/omkarguravv)
 
 ## Screenshots -
+
+
+
+
+
+## Installation
+
+Clone the project
+
+```bash
+  git clone https://github.com/sanket-16/stream-hackathon.git
+```
+
+  Go to the project directory
+
+```bash
+  cd stream-hackathon
+```
+
+## Run Locally
+
+Install dependencies
+
+```bash
+  npm install
+```
+Start the Client
+
+```bash
+  cd client
+
+  npm run dev
+```
+
+
+
+
+Start the Server
+
+```bash
+  cd server
+
+  npm  start
+```
+
+
+
+### Frontend
+ &mdash; starts React development server on `
+http://127.0.0.1:5173/`
+
+
+### Backend
+ &mdash; starts backend on `:8080`
