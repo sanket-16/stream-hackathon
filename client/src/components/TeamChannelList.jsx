@@ -16,7 +16,7 @@ function TeamChannelList({ children, error = false, loading, type, isCreating, s
 			</div>
 		);
 	}
-	console.log(children)
+	// console.log(children)
 
 	return (
 		<div className=''>
