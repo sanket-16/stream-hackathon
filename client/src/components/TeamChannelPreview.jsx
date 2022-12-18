@@ -14,7 +14,7 @@ function TeamChannelPreview({ setActiveChannel, setIsCreating, setIsEditing, cha
 
 
                 <Avatar image={members[0]?.user?.image} name={members[0]?.user?.name} size={24} />
-                <p className='text-lg '>{members[0]?.user?.name}</p>
+                <p className='text-lg '>{members[0]?.user?.name !== undefined ? members[0]?.user?.name : 'Deleted User' }</p>
             </div>
         )
     }
@@ -25,7 +25,7 @@ function TeamChannelPreview({ setActiveChannel, setIsCreating, setIsEditing, cha
                 ? 'bg-primary   flex items-center m-2 p-2  rounded-lg text-lg '
                 :' flex items-center m-2 p-2 bg-secondary rounded-lg text-lg hover:text-primary'
             }>
-              <span className='0 mr-2'> # </span> { channel?.data?.name || channel?.data?.id}
+              <span className='0 mr-2'> # </span> { channel?.data?.name !== undefined && channel?.data?.id !== undefined ? channel?.data?.name || channel?.data?.id : 'Deleted Channel' }
             </p>
         );
     }

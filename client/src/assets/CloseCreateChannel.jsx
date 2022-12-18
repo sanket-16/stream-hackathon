@@ -6,7 +6,7 @@ function CloseCreateChannel({ setIsCreating, setIsEditing }) {
         
             <AiOutlineClose
                 size={30}
-                className="bg-red-500 rounded-sm"
+                className="bg-red-600 rounded-sm hover:scale-105 hover:bg-red-400 duration-300"
                 onClick={() => {
                     if (setIsCreating) setIsCreating(false);
                     if (setIsEditing) setIsEditing(false);
