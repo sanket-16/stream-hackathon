@@ -83,4 +83,4 @@ http://127.0.0.1:5173/`
 
 
 ### Backend
- &mdash; starts backend on `:8080`
+ &mdash; starts backend on `http://localhost:8000/`
