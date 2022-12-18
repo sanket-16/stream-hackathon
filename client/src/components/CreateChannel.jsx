@@ -57,7 +57,7 @@ function CreateChannel({ createType, setIsCreating }) {
         <ChannelNameInput channelName={channelName} setChannelName={setChannelName} />}
 
         
-        <button  className='bg-primary mx-6 hover:bg-blue-700 hover:scale-105  ' onClick={createChannel}>
+        <button  className='bg-primary mx-6 hover:bg-blue-700 hover:scale-105 duration-300 ' onClick={createChannel}>
           <p >
             {createType === 'team' ? 'Create Channel' : 'Create message Group'}
 
