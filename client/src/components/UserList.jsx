@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Avatar, useChatContext } from 'stream-chat-react';
 import { TiTickOutline } from 'react-icons/ti';
-import { BsCircle } from 'react-icons/bs';
+import { BsCircle,BsFillCheckCircleFill } from 'react-icons/bs';
 
 const ListContainer = ({ children }) => {
 	return (
 		<div>
 			<div>
-				<h3 className='text-xl'>Invite User</h3>
+				<h1 className='text-xl ml-4'>Invite User</h1>
 			</div>
 			<div className='grid grid-cols-4 m-4 gap-4'>{children}</div>
 		</div>
@@ -40,7 +40,7 @@ const UserItem = ({ user, setSelectedUsers }) => {
 				/>
 			<p>{user.name || user.fullName || user.id}</p>
                 </div>
-				{selected ? <TiTickOutline color='white' /> : <BsCircle />}
+				{selected ? <BsFillCheckCircleFill color='#3861FB' /> : <BsCircle  />}
 			</div>
 		</div>
 	);
