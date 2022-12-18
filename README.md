@@ -42,31 +42,40 @@ Clone the project
 
 ## Run Locally
 
-Install dependencies
+Install dependencies for `Front-End`
 
 ```bash
+  cd client
+
   npm install
 ```
 Start the Client
 
+  *Note: You must change folder to `client` to run the following command.*
 ```bash
-  cd client
 
   npm run dev
 ```
 
 
-
-
-Start the Server
+---
+Install dependencies for `Back-End`
 
 ```bash
   cd server
 
+  npm install
+```
+
+Start the Server
+
+ *Note: You must change folder to `server` to run the following command.*
+```bash
+
   npm  start
 ```
 
-
+---
 
 ### Frontend
  &mdash; starts React development server on `
