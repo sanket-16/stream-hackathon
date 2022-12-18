@@ -9,11 +9,11 @@ import {
 	useChannelStateContext,
 	useChatContext,
 } from 'stream-chat-react';
-import {TbInfoCircle} from 'react-icons/tb'
+import { TbInfoCircle } from 'react-icons/tb'
 
 export const GiphyContext = React.createContext({});
 
-const ChannelInner = ({ setIsEditing,Message }) => {
+const ChannelInner = ({ setIsEditing, Message }) => {
 	const [giphyState, setGiphyState] = useState(false);
 	const { sendMessage } = useChannelActionContext();
 
@@ -70,13 +70,13 @@ const TeamChannelHeader = ({ setIsEditing }) => {
 			return (
 				<div>
 					{members.map(({ user }, i) => (
-						<div key={i} className=''>
+						<div key={i} className='flex mt-5 items-center'>
 							<Avatar
 								image={user.image}
 								name={user.fullName || user.id}
 								size={32}
 							/>
-							<p className=''>{user.fullName || user.id}</p>
+							<p className=' text-xl'>{user.fullName || user.id}</p>
 						</div>
 					))}
 
@@ -93,7 +93,7 @@ const TeamChannelHeader = ({ setIsEditing }) => {
 				<span
 					onClick={() => setIsEditing(true)}
 				>
-					<TbInfoCircle size={25}/>
+					<TbInfoCircle size={25} />
 				</span>
 			</div>
 		);
@@ -105,8 +105,9 @@ const TeamChannelHeader = ({ setIsEditing }) => {
 		return `${watchers} users online`;
 	};
 
+
 	return (
-		<div  className=' shadow-2xl  '>
+		<div className=' shadow-2xl  '>
 			<MessagingHeader />
 			<div className='text-white/50 px-6 pb-2'>
 				<p className=''>{getWatcherText(watcher_count)}</p>
