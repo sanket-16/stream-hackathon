@@ -12,11 +12,10 @@ const ChannelNameInput = ({ channelName = '', setChannelName }) => {
     setChannelName(e.target.value);
   }
   return (
-    <>
+    <div>
       <p className='text-xl'>Name</p>
-      <input value={channelName} onChange={handleChange} placeholder="Channel Name" />
-      <p>Add Member</p>
-    </>
+      <input type='text' value={channelName} onChange={handleChange} placeholder="Channel Name" />
+    </div>
   )
 }
 function CreateChannel({ createType, setIsCreating }) {

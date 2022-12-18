@@ -31,10 +31,10 @@ const SearchResult = ({ channel, focusedId, type, setChannel, setToggleContainer
             setToggleContainer((prevState) => !prevState)   
           }
         }}
-        className={focusedId === channel.id ? 'hover:scale-100' : 'hover:scale-100 channel-search__result-container' }
+        className={focusedId === channel.id ? 'hover:scale-100' : 'hover:scale-100 ' }
       >
-        <div className=' px-4 items-center'>
-        <p className='bg-[#494949] rounded-md h-8 font-bold pl-5   '># {channel.data.name}</p>
+        <div className='  items-center'>
+        <p className='bg-background rounded-lg  px-4 py-2   '> {channel.data.name}</p>
         </div>
        
       </div>
@@ -51,8 +51,8 @@ const SearchResult = ({ channel, focusedId, type, setChannel, setToggleContainer
       }}
       className={focusedId === channel.id ? ' hover:scale-100 ' : ' hover:scale-100 channel-search__result-container' }
     >
-      <div className='flex items-center gap-y-2 mt-2 px-4       '>
-      <div className='bg-[#494949] flex rounded-md p-4 w-full'>
+      <div className='flex items-center my-2  '>
+      <div className='flex bg-background rounded-lg  px-4 py-2  w-full'>
       <Avatar  image={channel.image || undefined} name={channel.name} size={24} />
         <p className='text-xl ml-2 '>{channel.name}</p>
       </div>
@@ -65,15 +65,16 @@ const SearchResult = ({ channel, focusedId, type, setChannel, setToggleContainer
 const ResultsDropdown = ({ teamChannels, directChannels, focusedId, loading, setChannel, setToggleContainer }) => {
 
   return (
-    <div className='channel-search__results'>
+    <div className='relative'>
+      <div className=' absolute bg-secondary w-full p-4 rounded-b-xl drop-shadow-xl '>
       <p className='font-semibold text-2xl mt-4 mb-3'>Channels</p>
       {loading && !teamChannels.length && (
-        <p className='channel-search__results-header'>
+        <p className=''>
           <i>Loading...</i>
         </p>
       )}
       {!loading && !teamChannels.length ? (
-        <p className='channel-search__results-header'>
+        <p className=''>
           <i>No channels found</i>
         </p>
       ) : (
@@ -90,12 +91,12 @@ const ResultsDropdown = ({ teamChannels, directChannels, focusedId, loading, set
       )}
       <p className='font-semibold text-2xl'>Users</p>
       {loading && !directChannels.length && (
-        <p className='channel-search__results-header'>
+        <p className=''>
           <i>Loading...</i>
         </p>
       )}
       {!loading && !directChannels.length ? (
-        <p className='channel-search__res ults-header'>
+        <p className=''>
           <i>No direct messages found</i>
         </p>
       ) : (
@@ -110,6 +111,7 @@ const ResultsDropdown = ({ teamChannels, directChannels, focusedId, loading, set
           />
         ))
       )}
+    </div>
     </div>
   );
 };

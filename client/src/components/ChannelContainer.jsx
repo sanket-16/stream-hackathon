@@ -15,12 +15,10 @@ function ChannelContainer({
 
 	if (isCreating) {
 		return (
-			<div>
-				<CreateChannel
-					createType={createType}
-					setIsCreating={setIsCreating}
-				/>
-			</div>
+			<CreateChannel
+				createType={createType}
+				setIsCreating={setIsCreating}
+			/>
 		);
 	}
 	if (isEditing) {
