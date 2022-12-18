@@ -34,7 +34,7 @@ const SearchResult = ({ channel, focusedId, type, setChannel, setToggleContainer
         className={focusedId === channel.id ? 'hover:scale-100' : 'hover:scale-100 ' }
       >
         <div className='  items-center'>
-        <p className='bg-background rounded-lg  px-4 py-2   '> {channel.data.name}</p>
+        <p className='bg-background rounded-lg  px-4 py-2 hover:bg-primary   '> {channel.data.name}</p>
         </div>
        
       </div>
@@ -52,9 +52,9 @@ const SearchResult = ({ channel, focusedId, type, setChannel, setToggleContainer
       className={focusedId === channel.id ? ' hover:scale-100 ' : ' hover:scale-100 channel-search__result-container' }
     >
       <div className='flex items-center my-2  '>
-      <div className='flex bg-background rounded-lg  px-4 py-2  w-full'>
+      <div className='flex bg-background rounded-lg  px-4 py-2  w-full hover:bg-primary '>
       <Avatar  image={channel.image || undefined} name={channel.name} size={24} />
-        <p className='text-xl ml-2 '>{channel.name}</p>
+        <p className='text-xl ml-2   '>{channel.name}</p>
       </div>
        
       </div>
