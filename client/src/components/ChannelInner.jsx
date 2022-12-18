@@ -68,9 +68,9 @@ const TeamChannelHeader = ({ setIsEditing }) => {
 
 		if (channel.type === 'messaging') {
 			return (
-				<div>
+				<div className='mx-2 '>
 					{members.map(({ user }, i) => (
-						<div key={i} className='flex mt-5 items-center'>
+						<div key={i} className='flex  items-center mt-5'>
 							<Avatar
 								image={user.image}
 								name={user.fullName || user.id}

@@ -31,7 +31,7 @@ const App = () => {
 	const [isEditing, setIsEditing] = useState(false);
 	if (!authToken) return <Auth />;
 	return (
-		<div className='h-screen'>
+		<div className='h-screen box-border overflow-hidden '>
 			<Chat client={client} theme='team dark'>
 				<div className='grid grid-cols-5'>
 				<ChannelListContainer
