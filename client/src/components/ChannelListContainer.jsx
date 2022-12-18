@@ -16,7 +16,7 @@ const image = cookies.get('avatarURL');
 
 const Profile = ({ logout }) => {
 	return (
-		<div className='flex flex-col items-end justify-end h-full rounded-lg pb-4 '>
+		<div className='flex flex-col items-center justify-end h-full rounded-lg pb-4 '>
 			<div className='p-2 '>
 				{image !== undefined ? (
 					<img
@@ -72,12 +72,12 @@ const ChannelListContainer = ({
 
 	return (
 		<div className=' col-span-1 row-span-full grid grid-cols-2 grid-rows-6  '>
-			<div className='col-span-2 row-span-1  '>
+			<div className='col-span-2 row-span-1 '>
 				<h1 className='text-primary w-full text-center font-bold py-5 '>Devcord </h1>
 			</div>
-			<div className='col-span-2  row-span-5 '>
+			<div className='col-span-2  row-span-5  '>
 				<div className='grid grid-cols-5 h-full'>
-					<div className=' col-span-1 '>
+					<div className=' col-span-1 mb-6'>
 						<Profile logout={logout} />
 					</div>
 					<div className='col-span-4 '>
