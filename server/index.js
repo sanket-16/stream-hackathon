@@ -8,6 +8,6 @@ app.use(express.json());
 
 app.use("/auth",authRoutes)
 
-app.listen(8080 , ()=>{
+app.listen(process.env.PORT || 8080 , ()=>{
     console.log("Server Running");
 })
