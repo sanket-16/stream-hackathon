@@ -24,7 +24,7 @@ function Auth() {
 		const {  username, password, phoneNumber, avatarURL } = form;
 
 		
-		const URL = 'http://localhost:8080/auth';
+		const URL = `${import.meta.env.VITE_PROXY}auth`;
 		const {
 			data: { token, userId, hashedPassword , fullName },
 		} = await axios.post(`${URL}/${isSignup ? 'signup' : 'signin'}`, {
