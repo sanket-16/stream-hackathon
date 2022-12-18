@@ -13,7 +13,7 @@ const ChannelNameInput = ({ channelName = '', setChannelName }) => {
   }
   return (
     <>
-      <p>Name</p>
+      <p className='text-xl'>Name</p>
       <input value={channelName} onChange={handleChange} placeholder="Channel Name" />
       <p>Add Member</p>
     </>
@@ -44,29 +44,33 @@ function CreateChannel({ createType, setIsCreating }) {
 
   }
   return (
-    <>
-      <div>
-        <p>{createType === 'team' ? 'Create a New Channel' : 'Send Direct Message'}</p>
+
+
+   
+    <div className='col-span-4'>
+      <div className='flex justify-between p-4'>
+        <h2>{createType === 'team' ? 'Create a New Channel' : 'Send Direct Message'}</h2>
         <CloseCreateChannel setIsCreating={setIsCreating} />
       </div>
 
-      <div>
-        {createType === 'team' && <ChannelNameInput channelName={channelName} setChannelName={setChannelName} />}
+      <div className='flex m-2 justify-between items-center'>
+        {createType === 'team' && 
+        <ChannelNameInput channelName={channelName} setChannelName={setChannelName} />}
 
-        <UserList
-          setSelectedUsers={setSelectedUsers} />
-
-        <div onClick={createChannel}>
+        
+        <button  className='bg-primary mx-6' onClick={createChannel}>
           <p>
             {createType === 'team' ? 'CreateChannel' : 'Create message Group'}
 
           </p>
-        </div>
+        </button>
+       
+
 
       </div>
+      <UserList setSelectedUsers={setSelectedUsers} />
 
-
-    </>
+    </div>
   )
 }
 
