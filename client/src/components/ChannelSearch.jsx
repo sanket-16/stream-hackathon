@@ -54,7 +54,7 @@ function ChannelSearch({ setToggleContainer }) {
 
 	return (
 		<div>
-			{/* SearchBar  */}
+			
 			<div className='relative flex items-center rounded-t-lg focus-within:shadow-lg bg-secondary overflow-hidden '>
 				<div className='grid place-items-center h-full pl-4'>
 					<IoMdSearch size={30} />

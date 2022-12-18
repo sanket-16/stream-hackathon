@@ -2,13 +2,7 @@ import React from 'react';
 import AddChannel from '../assets/AddChannel';
 
 function TeamChannelList({ children, error = false, loading, type, isCreating, setIsCreating, isEditing, setIsEditing, setCreateType, }) {
-	// if (error) {
-	// 	return type === 'team' ? (
-	// 		<div>
-	// 			<p>Connection error, please wait a moment and try again.</p>
-	// 		</div>
-	// 	) : null;
-	// }
+	
 	if (loading) {
 		return (
 			<div>
@@ -16,7 +10,7 @@ function TeamChannelList({ children, error = false, loading, type, isCreating, s
 			</div>
 		);
 	}
-	// console.log(children)
+
 
 	return (
 		<div className=''>

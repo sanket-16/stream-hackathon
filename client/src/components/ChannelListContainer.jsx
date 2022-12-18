@@ -12,7 +12,7 @@ const cookies = new Cookies();
 const userId = cookies.get('userId');
 const name = cookies.get('username');
 const image = cookies.get('avatarURL');
-console.log(image);
+
 
 const Profile = ({ logout }) => {
 	return (
