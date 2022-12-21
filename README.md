@@ -4,7 +4,7 @@
 
 https://devcord-stream.vercel.app/
 
-## Desrciption - 
+## Description - 
 This project is a chat applciation for developers , where we can host different types of chat rooms and send messages to various users.
 
 ## Tech Stack -
